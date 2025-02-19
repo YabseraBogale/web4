@@ -17,6 +17,7 @@ def resume():
 
 @app.route("/blog/<name>")
 def blog(name):
+    
     return render_template(name)
 
 if __name__=="__main__":
