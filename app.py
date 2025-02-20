@@ -1,9 +1,6 @@
 from flask import Flask,render_template,url_for,send_from_directory
 
-
 app=Flask(__name__)
-
-
 
 @app.route("/")
 def index():
@@ -17,7 +14,7 @@ def resume():
 
 @app.route("/blog/<name>")
 def blog(name):
-    
+
     return render_template(name)
 
 if __name__=="__main__":
