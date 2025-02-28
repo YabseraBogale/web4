@@ -1,4 +1,5 @@
-from flask import Flask,render_template,url_for,send_from_directory
+
+from flask import Flask,jsonify,request,render_template,url_for,send_from_directory
 
 app=Flask(__name__)
 
@@ -17,8 +18,11 @@ def blog(name):
 
     return render_template(name)
 
-@app.route("/newsletter")
+@app.route("/news",methods=['POST','GET'])
 def newletter():
+    if request.method=='POST':
+        print(request.form['email'])
+        return jsonify({'ok':200})
     return render_template("base.html")
 
 if __name__=="__main__":
