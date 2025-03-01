@@ -35,12 +35,24 @@
         text-align: center;
         justify-content: center;
     }
+    
+    .articles{
+        display: flex;
+        flex-direction: row;
+        margin-left: 50%;
+        margin-right: 50%;
+    }
+    a{
+        margin: 6px;
+    }
+
     .footer {
         position:relative;
         bottom:3px;
         justify-items: end;
         
     }
+
     @media screen and (max-width: 1000px) {
         .body{
         padding-left: 10%;
@@ -69,7 +81,11 @@
                 
 
             {% endblock %}
-          
+        </div>
+        <div class="articles">
+            {% block prev %}{% endblock %}
+            {% block next %}{% endblock %}
+        </div>
     </div>
 </body>
 
