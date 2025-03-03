@@ -5,6 +5,7 @@ create table HEEE(
     choice_c text not null,
     choice_d text not null,
     answer text not null,
+    explanation text not null
 )
 
 
