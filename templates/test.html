@@ -7,34 +7,42 @@
     <link rel="stylesheet" href="{{url_for('static',filename='style/test.css')}}">
 </head>
 <body>
-    <div class="main">
-        <div class="question">
-            <p id="question">
-
-            </p>
-            <div class="choices">
-                <div class="choice">
-                    <input type="radio" name="choice" > <p id="a"></p>
-                </div>
-                <div class="choice">
-                    <input type="radio" name="choice" > <p id="b"></p>
-                </div>
-                <div class="choice">
-                    <input type="radio" name="choice" > <p id="c"></p>
-                </div>
-                <div class="choice">
-                    <input type="radio" name="choice" > <p id="d"></p>
-                </div>
-            </div>
-            <div class="answer">
-
-            </div>
-            <div class="explanation">
-
-            </div>
+    <div class="body">
+        <div class="number_of_question">
+            <p class="count" id="count">0</p>
         </div>
-        <div class="list">
-
+        <div class="main">
+            <div class="question">
+                <p id="question">
+                </p>
+                <div class="choices">
+                    <div class="choice">
+                        <input type="radio" name="choice" > <p id="a"></p>
+                    </div>
+                    <div class="choice">
+                        <input type="radio" name="choice" > <p id="b"></p>
+                    </div>
+                    <div class="choice">
+                        <input type="radio" name="choice" > <p id="c"></p>
+                    </div>
+                    <div class="choice">
+                        <input type="radio" name="choice" > <p id="d"></p>
+                    </div>
+                    <div class="choice">
+                        <p id="previous" class="btn">previous</p>
+                        <p id="next" class="btn">next</p>
+                        <p id="check_answer" class="btn">check answer</p>
+                    </div>
+                </div>
+            </div>
+            <div class="detail">
+                <div class="answer" id="answer">
+    
+                </div>
+                <div class="explanation" id="explanation">
+    
+                </div>
+            </div>
         </div>
     </div>
 <script src="{{url_for('static',filename='js/test.js')}}"></script>

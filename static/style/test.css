@@ -4,16 +4,56 @@
     font-family:  "Cartograph CF", monospace;
 }
 
+
 .question{
-    margin-left: 10%;
-    margin-right: 10%;
+    margin-top: 10%;
+    margin-left: 25%;
+    margin-right: 25%;
+    border: 2px solid hsl(210deg 10% 90%);
+    border-radius: 4px;
 }
+
+.detail{
+    margin-top: 25px;
+    margin-left: 25%;
+    margin-right: 25%;
+    border: 2px solid hsl(210deg 10% 90%);
+    border-radius: 4px;
+}
+
 .choices{
     display: flex;
     flex-direction: column;
-    margin-right: 60%;
+    margin-right: 25%;
 }
 .choice{
     display: flex;
     flex-direction: row;
+}
+.btn{
+    margin: 5px;
+    background-color: hsl(210deg 10% 90%);
+    color: hsl(210deg 40% 16%);
+    border: 2px solid hsl(210deg 10% 90%);
+    border-radius: 4px;
+}
+
+.answer{
+    margin: 2px;
+    background-color: hsl(210deg 10% 90%);
+    color: hsl(210deg 40% 16%);
+    border: 2px solid hsl(210deg 10% 90%);
+    border-radius: 4px;
+}
+
+.number_of_question{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 5%;
+    margin-left: 30%;
+    margin-right: 30%;
+    border: 2px solid hsl(210deg 10% 90%);
+    border-radius: 4px;
+    
 }
