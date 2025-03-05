@@ -3,3 +3,17 @@
     color: hsl(210deg 10% 90%);
     font-family:  "Cartograph CF", monospace;
 }
+
+.question{
+    margin-left: 10%;
+    margin-right: 10%;
+}
+.choices{
+    display: flex;
+    flex-direction: column;
+    margin-right: 60%;
+}
+.choice{
+    display: flex;
+    flex-direction: row;
+}
