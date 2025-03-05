@@ -19,6 +19,7 @@
     margin-right: 25%;
     border: 2px solid hsl(210deg 10% 90%);
     border-radius: 4px;
+    visibility: hidden;
 }
 
 .choices{
@@ -46,14 +47,3 @@
     border-radius: 4px;
 }
 
-.number_of_question{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-top: 5%;
-    margin-left: 30%;
-    margin-right: 30%;
-    border: 2px solid hsl(210deg 10% 90%);
-    border-radius: 4px;
-    
-}
