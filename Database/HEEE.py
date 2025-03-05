@@ -17,3 +17,14 @@ class heee():
         except Exception as e:
             print(e)
             return False
+    
+    def get_random_100_question_heee(self):
+        try:
+            statment="SELECT * FROM HEEE ORDER BY RANDOM() LIMIT 100 OFFSET 1;"
+            self.pointer.execute(statment)
+            result=self.pointer.fetchall()
+            return list(result)
+        except Exception as e:
+            print(e)
+        
+

@@ -45,4 +45,4 @@ class Database():
             return False
     
 
-print(Database().create_table_heee())
+
