@@ -20,7 +20,7 @@ def resume():
 def exit_exam_question_answer_api():
     result=exit_exam.get_random_100_question_heee()
     if type(result)==type([]):
-        return jsonify()
+        return jsonify(result)
     return jsonify([])
 
 @app.route("/blog/<name>")
