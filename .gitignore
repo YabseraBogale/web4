@@ -1,5 +1,6 @@
 env/
 __pycache__/
+Database/__pycache__/
 main.py
 question.json
 database.db
