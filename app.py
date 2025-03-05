@@ -17,6 +17,10 @@ def resume():
     filename="resume.pdf"
     return send_from_directory(directory,filename,as_attachment=True)
 
+@app.route("/test")
+def test():
+    return render_template("test.html")
+
 @app.route("/exit_exam_question_answer_api")
 def exit_exam_question_answer_api():
     result=exit_exam.get_random_100_question_heee()
