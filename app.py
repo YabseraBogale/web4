@@ -1,10 +1,11 @@
 
 from flask import Flask,jsonify,request,render_template,url_for,send_from_directory
 from Database.HEEE import heee 
+from Database.NEWLETTER import newletter
 
 app=Flask(__name__)
 exit_exam=heee()
-
+news_letter=newletter()
 
 @app.route("/")
 def index():
