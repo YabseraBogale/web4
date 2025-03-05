@@ -1,7 +1,10 @@
 
 from flask import Flask,jsonify,request,render_template,url_for,send_from_directory
+from Database.HEEE import heee 
 
 app=Flask(__name__)
+exit_exam=heee()
+
 
 @app.route("/")
 def index():
@@ -12,6 +15,13 @@ def resume():
     directory="static/files"
     filename="resume.pdf"
     return send_from_directory(directory,filename,as_attachment=True)
+
+@app.route("/exit_exam_question_answer_api")
+def exit_exam_question_answer_api():
+    result=exit_exam.get_random_100_question_heee()
+    if type(result)==type([]):
+        return jsonify()
+    return jsonify([])
 
 @app.route("/blog/<name>")
 def blog(name):
