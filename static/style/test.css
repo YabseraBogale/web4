@@ -47,3 +47,9 @@
     border-radius: 4px;
 }
 
+@media only screen and(max-width: 800px) {
+    .choice{
+        display: flex;
+        flex-direction: column;
+    }
+}
