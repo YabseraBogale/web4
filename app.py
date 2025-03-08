@@ -17,6 +17,13 @@ def resume():
     filename="resume.pdf"
     return send_from_directory(directory,filename,as_attachment=True)
 
+
+@app.route("/come",methods=["GET","POST"])
+def come():
+    if request.method=="POST":
+        return "ok"
+    return render_template("come.html")
+
 @app.route("/test")
 def test():
     return render_template("test.html")
@@ -30,7 +37,6 @@ def exit_exam_question_answer_api():
 
 @app.route("/blog/<name>")
 def blog(name):
-
     return render_template(name)
 
 @app.route("/news",methods=['POST','GET'])
