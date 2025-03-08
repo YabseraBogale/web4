@@ -24,7 +24,10 @@
         <video id="video" autoplay></video>
         <button id="capture">Take Photo</button>
         <canvas id="canvas" style="display: none;"></canvas>
-        <img id="Photo" alt="capture Photo will appear here">
+        <form action="{{url_for('come')}}" method="post" enctype="multipart/form-data">
+            <img id="Photo" name="name" alt="capture Photo will appear here">
+            <input type="submit" value="enter">
+        </form>    
     </div>
 </body>
 
