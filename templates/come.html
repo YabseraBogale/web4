@@ -4,58 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Video</title>
+    <link rel="stylesheet" href="{{url_for('static',filename='style/come.css')}}">
 </head>
-<style>
-    *{
-        background-color: hsl(210deg 40% 16%);
-        color: hsl(210deg 10% 90%);
-        font-family:  "Cartograph CF", monospace;
 
-    }
-    .main{
-        display: flex;
-        flex-direction: row;
-    }
-    
-    .record{
-        display: flex;
-        flex-direction: column;
-        margin-left: 5%;
-        margin-right: 5%;
-        margin-bottom: 5%;
-        border: 3px solid hsl(210deg 10% 90%);
-        border-radius: 3px;
-    }
-    #recorded{
-        display: none; 
-    }
-    
-    button{
-        background-color:hsl(210deg 10% 90%); 
-        color: hsl(210deg 40% 16%);
-        border: 3px solid hsl(210deg 10% 90%);
-        margin-left: 30%;
-        margin-right: 30%;
-        
-    }
-
-    #video, #start, #send, .video{
-        margin-top: 15px;
-        
-    }
-    .question{
-        display: none;
-        margin-left: 5%;
-        margin-right:  5%;
-
-    }
-    li{
-       
-        margin-top: 5px;
-    }
-
-   
-</style>
 <body>
     <div class="main">
         <div class="question">
@@ -94,67 +45,6 @@
     </div>
     
 
-<script>
-    
-    const vid=document.getElementById("vid")
-    const recorded=document.getElementById("recorded")
-    const video=document.getElementById("video")
-    const start=document.getElementById("start")
-    const send=document.getElementById("send")
-    const record=document.getElementById("recorded_video")
-    const question=document.querySelector(".question")
-
-    let mediaRecorder;
-    let recordchunk=[]
-    
-    async function startVideoStream(){
-        try{    
-                
-                let stream=await navigator.mediaDevices.getUserMedia({video: true,audio: true})
-                video.srcObject=stream
-                mediaRecorder=new MediaRecorder(stream)
-                mediaRecorder.ondataavailable =(event)=>{
-                    
-                    if(event.data.size > 0){
-                        recordchunk.push(event.data)
-                    }
-                }
-                mediaRecorder.onstop =()=>{
-                    const blob = new Blob(recordchunk,{type:'video/webm'})
-                    const videourl=URL.createObjectURL(blob)
-                    record.src=videourl
-                    if(stream){
-                        stream.getTracks().forEach(track=>{
-                            track.stop()
-                        })
-                    }
-            }
-        }catch(err){
-            console.error(err)
-        }
-        
-    }
-    start.addEventListener("click",()=>{
-        try{
-
-            recordChunks = []; 
-            mediaRecorder.start();
-            question.style.display='inline'
-            setTimeout(()=>{
-                mediaRecorder.stop()
-                vid.style.display='none'
-                recorded.style.display='inline'
-            },3000)        
-            
-        } catch(err){
-            console.error(err);
-            
-        }
-
-    })
-    
-    startVideoStream()
-
-</script>
+<script src="{{url_for('static',filename='js/come.js')}}"></script>
 </body>
 </html>
