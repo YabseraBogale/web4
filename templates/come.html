@@ -3,55 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Camera</title>
+    <title>Video</title>
 </head>
 <style>
-    .main{
-        display: flex;
-        flex-direction: column;
-        margin-left: 30%;
-        margin-right: 30%;
-    }
-    #capture{
-        margin-top: 3%;
-    }
-    #Photo{
-        margin-top: 3%;
-    }
+    
 </style>
 <body>
-    <div class="main">
-        <video id="video" autoplay></video>
-        <button id="capture">Take Photo</button>
-        <canvas id="canvas" style="display: none;"></canvas>
-        <form action="{{url_for('come')}}" method="post" enctype="multipart/form-data">
-            <img id="Photo" name="name" alt="capture Photo will appear here">
-            <input type="submit" value="enter">
-        </form>    
-    </div>
+    
 </body>
-
-    <script>
-        const video=document.getElementById("video")
-        async function startcamera() {
-            try{
-                const stream = await navigator.mediaDevices.getUserMedia({video: true})
-                video.srcObject = stream;
-            } catch(err){
-                console.error(err)
-            }
-        }
-        startcamera()
-        const canvas=document.getElementById("canvas")
-        const photo=document.getElementById("Photo")
-        const captureButton = document.getElementById('capture');
-        captureButton.addEventListener('click', () => {
-            canvas.width = video.videoWidth;
-            canvas.height = video.videoHeight;
-            canvas.getContext('2d').drawImage(video, 0, 0, canvas.width, canvas.height);
-            const imageDataUrl = canvas.toDataURL('image/jpeg');
-            photo.src = imageDataUrl;
-        });
-
-    </script>
 </html>
