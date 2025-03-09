@@ -6,17 +6,44 @@
     <title>Video</title>
 </head>
 <style>
-    
+    *{
+        background-color: hsl(210deg 40% 16%);
+        color: hsl(210deg 10% 90%);
+        font-family:  "Cartograph CF", monospace;
+
+    }
+    .record{
+        display: flex;
+        flex-direction: column;
+        margin-left: 40%;
+        margin-right: 40%;
+    }
+
+    button{
+        background-color:hsl(210deg 10% 90%); 
+        color: hsl(210deg 40% 16%);
+        border: 3px solid hsl(210deg 10% 90%);
+        border-radius: 3px;
+        
+    }
+
+    #video, #start, #send, .video{
+        margin-top: 15px;
+    }
+   
 </style>
 <body>
     
-    <video id="video" autoplay></video>
-    <button id="start">start</button>
-    <button id="send">send</button>
-    <video id="recorded-video" controls></video>
+    <div class="record">
+        <video id="video" autoplay></video>
+        <button id="start">start</button>
+        <video id="recorded-video" class="video" controls></video>
+        <button id="send">send</button>
+    </div>
+    
 
 <script>
-    
+
     const video=document.getElementById("video")
     const start=document.getElementById("start")
     const send=document.getElementById("send")
@@ -29,29 +56,43 @@
         try{
                 let stream=await navigator.mediaDevices.getUserMedia({video: true})
                 video.srcObject=stream
-                mediaRecorder=new mediaRecorder(stream)
+                mediaRecorder=new MediaRecorder(stream)
                 mediaRecorder.ondataavailable =(event)=>{
+                    
                     if(event.data.size > 0){
                         recordchunk.push(event.data)
                     }
                 }
-                mediaRecorder.onstop=()=>{
-                video.addEventListener("timeupdate",function(){
-                    if(this.currentTime>= 5*60){
-                        this.pause()
-                        const blob = new Blob(recordchunk,{type:'video/webm'})
-                        const videourl=URL.createObjectURL(blob)
-                        record.src=videourl
-                    }
-                })
+                mediaRecorder.onstop =()=>{
+                    const blob = new Blob(recordchunk,{type:'video/webm'})
+                    const videourl=URL.createObjectURL(blob)
+                    record.src=videourl
             }
         }catch(err){
             console.error(err)
         }
         
     }
-    start.addEventListener("click",startVideoStream)
+    start.addEventListener("click",()=>{
+        try{
+            recordchunk=[]
+            mediaRecorder.start()
+            start.disabled=true
+            console.log("Recording started...");
+            setTimeout(()=>{
+                mediaRecorder.stop()
+                console.log("Recording stopped after 3 seconds.");
+                start.disabled=false
+            },1000)
+            
+        } catch(err){
+            console.error(err);
+            
+        }
 
+    })
+    
+    startVideoStream()
 
 </script>
 </body>
