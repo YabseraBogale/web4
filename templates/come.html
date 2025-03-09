@@ -33,12 +33,32 @@
    
 </style>
 <body>
-    
-    <div class="record">
-        <video id="video" autoplay></video>
-        <button id="start">start</button>
-        <video id="recorded-video" class="video" controls></video>
-        <button id="send">send</button>
+    <div class="main">
+        <div class="question">
+            <ol>
+                <li>
+                    What is your name ?
+                </li>
+                <li>
+                    Tell us a little bit about your previous job ? 
+                </li>
+                <li>
+                    What was the biggest challenges you faced in your previous job ?
+                </li>
+                <li>
+                    How did you solve challenges ?
+                </li>
+                <li>
+                    What is Your Hobby ?
+                </li>
+            </ol>
+        </div>
+        <div class="record">
+            <video id="video" autoplay></video>
+            <button id="start">start</button>
+            <video id="recorded-video" class="video" controls></video>
+            <button id="send">send</button>
+        </div>
     </div>
     
 
@@ -54,7 +74,7 @@
     
     async function startVideoStream(){
         try{
-                let stream=await navigator.mediaDevices.getUserMedia({video: true})
+                let stream=await navigator.mediaDevices.getUserMedia({video: true,audio: true})
                 video.srcObject=stream
                 mediaRecorder=new MediaRecorder(stream)
                 mediaRecorder.ondataavailable =(event)=>{
