@@ -10,5 +10,49 @@
 </style>
 <body>
     
+    <video id="video" autoplay></video>
+    <button id="start">start</button>
+    <button id="send">send</button>
+    <video id="recorded-video" controls></video>
+
+<script>
+    
+    const video=document.getElementById("video")
+    const start=document.getElementById("start")
+    const send=document.getElementById("send")
+    const record=document.getElementById("recorded-video")
+
+    let mediaRecorder;
+    let recordchunk=[]
+    
+    async function startVideoStream(){
+        try{
+                let stream=await navigator.mediaDevices.getUserMedia({video: true})
+                video.srcObject=stream
+                mediaRecorder=new mediaRecorder(stream)
+                mediaRecorder.ondataavailable =(event)=>{
+                    if(event.data.size > 0){
+                        recordchunk.push(event.data)
+                    }
+                }
+                mediaRecorder.onstop=()=>{
+                video.addEventListener("timeupdate",function(){
+                    if(this.currentTime>= 5*60){
+                        this.pause()
+                        const blob = new Blob(recordchunk,{type:'video/webm'})
+                        const videourl=URL.createObjectURL(blob)
+                        record.src=videourl
+                    }
+                })
+            }
+        }catch(err){
+            console.error(err)
+        }
+        
+    }
+    start.addEventListener("click",startVideoStream)
+
+
+</script>
 </body>
 </html>
