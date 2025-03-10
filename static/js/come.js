@@ -10,7 +10,7 @@ const question=document.querySelector(".question")
 
 let mediaRecorder;
 let recordchunk=[]
-
+let blob=null
 async function startVideoStream(){
     try{    
             
@@ -24,9 +24,12 @@ async function startVideoStream(){
                 }
             }
             mediaRecorder.onstop =()=>{
-                const blob = new Blob(recordchunk,{type:'video/webm'})
+                blob = new Blob(recordchunk,{type:'video/webm'})
                 const videourl=URL.createObjectURL(blob)
                 record.src=videourl
+                video.style.display='none'
+                recorded.style.display='block'
+                send.disabled=false
                 if(stream){
                     stream.getTracks().forEach(track=>{
                         track.stop()
@@ -55,6 +58,28 @@ start.addEventListener("click",()=>{
         
     }
 
+})
+
+send.addEventListener("click",async function () {
+    if(!blob){
+        console.error("No recorded video found")
+        return 
+    }
+    const formData=new FormData()
+    formData.append("video",blob,"recorded_video.webm")
+    try{
+        const response=await fetch("http://127.0.0.1:5000/come",{
+            method: "POST",
+            body:formData,
+        })
+        if(response.ok){
+            console.log("sent sucessfully");   
+        } else {
+            console.error(response.statusText);
+        }
+    } catch(err){
+        console.error(err);
+    }
 })
 
 startVideoStream()

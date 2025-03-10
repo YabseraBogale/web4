@@ -35,16 +35,16 @@
                 <video id="video" autoplay></video>
                 <button id="start">start</button>
            </div>
+          <form action="{{url_for('come')}}" method="post" enctype="multipart/form-data">
             <div id="recorded">
                 <video id="recorded_video" class="video" controls></video>
                 <button id="send">send</button>
             </div>
+          </form>
         </div>
        
           
     </div>
-    
-
 <script src="{{url_for('static',filename='js/come.js')}}"></script>
 </body>
 </html>
