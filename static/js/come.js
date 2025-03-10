@@ -60,7 +60,7 @@ start.addEventListener("click",()=>{
 
 })
 
-send.addEventListener("click",async function () {
+send.addEventListener("click",async ()=> {
     if(!blob){
         console.error("No recorded video found")
         return 
@@ -74,9 +74,7 @@ send.addEventListener("click",async function () {
         })
         if(response.ok){
             console.log("sent sucessfully");   
-        } else {
-            console.error(response.statusText);
-        }
+        } 
     } catch(err){
         console.error(err);
     }
