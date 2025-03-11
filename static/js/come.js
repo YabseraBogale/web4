@@ -44,7 +44,7 @@ async function startVideoStream(){
 start.addEventListener("click",()=>{
     try{
 
-        recordChunks = []; 
+        recordchunks = []; 
         mediaRecorder.start();
         question.style.display='inline'
         setTimeout(()=>{
