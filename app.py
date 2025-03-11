@@ -54,8 +54,10 @@ def blog(name):
 @app.route("/news",methods=['POST','GET'])
 def newletter():
     if request.method=='POST':
-        print(request.form['email'])
-        return jsonify({'ok':200})
+        if news_letter.insert_into_newletter(request.form['email'])==True:
+            return jsonify({'ok':200})
+        else:
+            return '404'
     return render_template("base.html")
 
 if __name__=="__main__":
