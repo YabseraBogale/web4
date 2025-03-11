@@ -57,7 +57,7 @@ def newletter():
         if news_letter.insert_into_newletter(request.form['email'])==True:
             return jsonify({'ok':200})
         else:
-            return '404'
+            return jsonify({'err':404})
     return render_template("base.html")
 
 if __name__=="__main__":
