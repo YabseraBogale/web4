@@ -1,7 +1,9 @@
 import os
+from datetime import datetime
 from flask import Flask,jsonify,request,render_template,url_for,send_from_directory
 from Database.HEEE import heee 
 from Database.NEWLETTER import newletter
+
 
 app=Flask(__name__)
 app.config["UPLOAD_FOLDER"]="Upload/"
@@ -28,7 +30,8 @@ def come():
         if video.filename=="":
             return "no video"
         else:
-            video_path=os.path.join(app.config["UPLOAD_FOLDER"],video.filename)
+            filename=str(datetime.now())+video.filename
+            video_path=os.path.join(app.config["UPLOAD_FOLDER"],filename)
             video.save(video_path)
             return "ok"
     return render_template("come.html")
