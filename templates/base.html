@@ -106,7 +106,12 @@
                     method:"POST",
                     body:formData,
                 });
-                console.log(await response.json())
+                const result= await response.json()
+                if(result.ok==200){
+                   
+                } else if (result.err==404){
+                    
+                }
             }
             catch(e){
                 console.error(e)

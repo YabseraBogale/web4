@@ -15,7 +15,6 @@ class heee():
             self.connection.commit()
             return True
         except Exception as e:
-            print(e)
             return False
     
     def get_random_100_question_heee(self):
@@ -25,6 +24,6 @@ class heee():
             result=self.pointer.fetchall()
             return list(result)
         except Exception as e:
-            print(e)
+            return []
         
 

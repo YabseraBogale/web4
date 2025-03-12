@@ -17,5 +17,4 @@ class newletter():
             self.connection.commit()
             return True
         except Exception as e:
-            print(e)
             return False
