@@ -7,7 +7,7 @@ const start=document.getElementById("start")
 const send=document.getElementById("send")
 const record=document.getElementById("recorded_video")
 const question=document.querySelector(".question")
-
+const minute=10
 let mediaRecorder;
 let recordchunk=[]
 let blob=null
@@ -51,7 +51,7 @@ start.addEventListener("click",()=>{
             mediaRecorder.stop()
             vid.style.display='none'
             recorded.style.display='inline'
-        },3000)        
+        },minute*60*1000)        
         
     } catch(err){
         console.error(err);
