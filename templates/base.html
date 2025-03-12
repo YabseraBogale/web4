@@ -65,6 +65,7 @@
 </style>
 <body>
     <div class="body">
+       
         <div class="title">
             <h2>{% block title %}{% endblock %}</h2>
         </div>
@@ -93,12 +94,16 @@
     
     <form class="footer" id="form">
         <hr>
+        <div id="dialog">
+            
+        </div>
         <div class="news">
             for weekily news letter <input type="email" name="email" id="email" placeholder="email"><b id="send">enter</b>
         </div>
     </form>
     <script>
         const form = document.getElementById("form")
+        const dialog=document.getElementById("dialog")
         async function sendData() {
             const formData= new FormData(form)
             try{
@@ -108,9 +113,21 @@
                 });
                 const result= await response.json()
                 if(result.ok==200){
-                   alert("sucessful regsisted! thanks for signup")
+                    dialog.innerHTML=`<dialog open>
+                                        <p>Greetings, Thanks for signnig up!</p>
+                                        <form method="dialog">
+                                        <button>OK</button>
+                                        </form>
+                                    </dialog>`
+                   
                 } else if (result.err==404){
-                    alert("Already Signed up")
+                    dialog.innerHTML=`<dialog open>
+                                        <p>Already in signned for new letter!</p>
+                                        <form method="dialog">
+                                        <button>OK</button>
+                                        </form>
+                                    </dialog>`
+                   
                 }
             }
             catch(e){
