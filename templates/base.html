@@ -108,9 +108,9 @@
                 });
                 const result= await response.json()
                 if(result.ok==200){
-                   
+                   alert("sucessful regsisted! thanks for signup")
                 } else if (result.err==404){
-                    
+                    alert("Already Signed up")
                 }
             }
             catch(e){
