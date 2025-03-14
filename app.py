@@ -60,5 +60,10 @@ def newletter():
             return jsonify({'err':404})
     return render_template("base.html")
 
+
+@app.route("/dictinory")
+def dictinory():
+    return render_template("dictinory.html")
+
 if __name__=="__main__":
     app.run(debug=True)
