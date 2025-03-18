@@ -26,4 +26,11 @@ class heee():
         except Exception as e:
             return []
         
-
+    def random_software_fact(self):
+        try:
+            statment="Select explanation FROM HEEE order by random() Limit 1 offset 1;"
+            self.pointer.execute(statment)
+            result=self.pointer.fetchall()
+            return list(result)
+        except Exception as e:
+            return []

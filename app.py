@@ -63,7 +63,8 @@ def newletter():
 
 @app.route("/random_software_fact")
 def random_software_fact():
-    return render_template("random_software_fact.html")
+    facts=exit_exam.random_software_fact()
+    return render_template("random_software_fact.html",Facts=facts)
 
 if __name__=="__main__":
     app.run(debug=True)
