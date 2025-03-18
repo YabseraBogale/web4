@@ -61,9 +61,9 @@ def newletter():
     return render_template("base.html")
 
 
-@app.route("/dictinory")
-def dictinory():
-    return render_template("dictinory.html")
+@app.route("/random_software_fact")
+def random_software_fact():
+    return render_template("random_software_fact.html")
 
 if __name__=="__main__":
     app.run(debug=True)
