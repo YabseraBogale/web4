@@ -14,12 +14,27 @@ fetch("http://127.0.0.1:5000/exit_exam_question_answer_api")
         let check_answer=document.getElementById("check_answer")
         let radio=document.getElementsByName("choice")
         let number_btn=document.getElementById("number_btn")
-        let goto=document.querySelectorAll("goto")
+        let goto=document.querySelectorAll(".goto")
         let str=""
         for(let i=1;i<101;i++){
-            str+="<button class='goto'>"+i+"</button>"
+            str+="<button>"+i+"</button>"
         }
+        
+        
+
         number_btn.innerHTML=str
+        for(let i=0;i<100;i++){
+            let number_in=parseInt(goto[i].innerText)
+            goto[i].addEventListener("click",function(){
+                question.innerText=data[number_in][0]
+                choice_a.innerText=data[number_in][1]
+                choice_b.innerText=data[number_in][2]
+                choice_c.innerText=data[number_in][3]
+                choice_d.innerText=data[number_in][4]
+                anwser.innerText="Answer: "+data[number_in][5]
+                explanation.innerText="Explanation: "+data[number_in][6]
+            })
+        }
         question.innerText=data[number][0]
         choice_a.innerText=data[number][1]
         choice_b.innerText=data[number][2]
@@ -27,7 +42,7 @@ fetch("http://127.0.0.1:5000/exit_exam_question_answer_api")
         choice_d.innerText=data[number][4]
         anwser.innerText="Answer: "+data[number][5]
         explanation.innerText="Explanation: "+data[number][6]
-        console.log(goto[9].innerText);
+        
         
         next.addEventListener("click",function(){
             if(number<100){
