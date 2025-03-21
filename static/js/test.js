@@ -14,7 +14,12 @@ fetch("http://127.0.0.1:5000/exit_exam_question_answer_api")
         let check_answer=document.getElementById("check_answer")
         let radio=document.getElementsByName("choice")
         let number_btn=document.getElementById("number_btn")
-        
+        let goto=document.querySelectorAll("goto")
+        let str=""
+        for(let i=1;i<101;i++){
+            str+="<button class='goto'>"+i+"</button>"
+        }
+        number_btn.innerHTML=str
         question.innerText=data[number][0]
         choice_a.innerText=data[number][1]
         choice_b.innerText=data[number][2]
@@ -22,6 +27,7 @@ fetch("http://127.0.0.1:5000/exit_exam_question_answer_api")
         choice_d.innerText=data[number][4]
         anwser.innerText="Answer: "+data[number][5]
         explanation.innerText="Explanation: "+data[number][6]
+        console.log(goto[9].innerText);
         
         next.addEventListener("click",function(){
             if(number<100){
