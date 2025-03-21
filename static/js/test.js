@@ -13,6 +13,7 @@ fetch("http://127.0.0.1:5000/exit_exam_question_answer_api")
         let next=document.getElementById("next")
         let check_answer=document.getElementById("check_answer")
         let radio=document.getElementsByName("choice")
+        let number_btn=document.getElementById("number_btn")
         
         question.innerText=data[number][0]
         choice_a.innerText=data[number][1]
