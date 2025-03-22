@@ -47,6 +47,11 @@
     border-radius: 4px;
 }
 
+#number_btn{
+    display: flex;
+    flex-flow: row wrap;
+}
+
 @media only screen and(max-width: 800px) {
     .choice{
         display: flex;
