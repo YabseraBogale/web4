@@ -13,7 +13,23 @@ fetch("http://127.0.0.1:5000/exit_exam_question_answer_api")
         let next=document.getElementById("next")
         let check_answer=document.getElementById("check_answer")
         let radio=document.getElementsByName("choice")
-        
+        let goto=document.querySelectorAll(".goto")
+
+        goto.forEach(item=>{
+           
+            item.addEventListener("click",function(){
+                let number_in=parseInt(item.innerText)
+                question.innerText=data[number_in][0]
+                choice_a.innerText=data[number_in][1]
+                choice_b.innerText=data[number_in][2]
+                choice_c.innerText=data[number_in][3]
+                choice_d.innerText=data[number_in][4]
+                anwser.innerText="Answer: "+data[number_in][5]
+                explanation.innerText="Explanation: "+data[number_in][6]
+                
+            })
+            
+        })
         
         question.innerText=data[number][0]
         choice_a.innerText=data[number][1]
@@ -65,17 +81,10 @@ fetch("http://127.0.0.1:5000/exit_exam_question_answer_api")
             detail.style.visibility='visible'
         })
         
-        function number_in(number){
-            question.innerText=data[number][0]
-            choice_a.innerText=data[number][1]
-            choice_b.innerText=data[number][2]
-            choice_c.innerText=data[number][3]
-            choice_d.innerText=data[number][4]
-            anwser.innerText="Answer: "+data[number][5]
-            explanation.innerText="Explanation: "+data[number][6]
-        }
+      
         
     })
     .catch(err=>{
         console.error(err)
     })
+
