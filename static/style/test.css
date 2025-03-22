@@ -6,7 +6,7 @@
 
 
 .question{
-    margin-top: 10%;
+    
     margin-left: 25%;
     margin-right: 25%;
     border: 2px solid hsl(210deg 10% 90%);
@@ -48,8 +48,13 @@
 }
 
 #number_btn{
-    display: flex;
-    flex-flow: row wrap;
+    margin-left: 35%;
+    margin-right: 25%;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);  /* 5 equal columns */
+    grid-template-rows: repeat(20, auto); /* 20 rows with automatic height */
+    gap: 5px; /* Optional: Adds space between grid items */
+    width: 30%;
 }
 
 @media only screen and(max-width: 800px) {

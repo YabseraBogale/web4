@@ -18,7 +18,7 @@ fetch("http://127.0.0.1:5000/exit_exam_question_answer_api")
         goto.forEach(item=>{
            
             item.addEventListener("click",function(){
-                let number_in=parseInt(item.innerText)
+                let number_in=parseInt(item.innerText)-1
                 question.innerText=data[number_in][0]
                 choice_a.innerText=data[number_in][1]
                 choice_b.innerText=data[number_in][2]
@@ -26,6 +26,11 @@ fetch("http://127.0.0.1:5000/exit_exam_question_answer_api")
                 choice_d.innerText=data[number_in][4]
                 anwser.innerText="Answer: "+data[number_in][5]
                 explanation.innerText="Explanation: "+data[number_in][6]
+                detail.style.visibility='hidden'
+                radio[0].checked=false
+                radio[1].checked=false
+                radio[2].checked=false
+                radio[3].checked=false
                 
             })
             
