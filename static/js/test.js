@@ -65,6 +65,15 @@ fetch("http://127.0.0.1:5000/exit_exam_question_answer_api")
             detail.style.visibility='visible'
         })
         
+        function number_in(number){
+            question.innerText=data[number][0]
+            choice_a.innerText=data[number][1]
+            choice_b.innerText=data[number][2]
+            choice_c.innerText=data[number][3]
+            choice_d.innerText=data[number][4]
+            anwser.innerText="Answer: "+data[number][5]
+            explanation.innerText="Explanation: "+data[number][6]
+        }
         
     })
     .catch(err=>{
