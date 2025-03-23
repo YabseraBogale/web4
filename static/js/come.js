@@ -1,3 +1,7 @@
+if(window.navigator.maxTouchPoints == 0){
+
+}
+else{
 
 
 const vid=document.getElementById("vid")
@@ -81,3 +85,4 @@ send.addEventListener("click",async ()=> {
 })
 
 startVideoStream()
+}
