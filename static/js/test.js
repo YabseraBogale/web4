@@ -3,6 +3,7 @@ fetch("http://127.0.0.1:5000/exit_exam_question_answer_api")
     .then((response)=> response.json())
     .then(data=>{
         const question=document.getElementById("question")
+        let reload=document.getElementById("reload")
         let choice_a = document.getElementById("a")
         let choice_b = document.getElementById("b")
         let choice_c = document.getElementById("c")
@@ -61,7 +62,7 @@ fetch("http://127.0.0.1:5000/exit_exam_question_answer_api")
                 radio[1].checked=false
                 radio[2].checked=false
                 radio[3].checked=false
-                console.log(number)
+                
             }
             
         })
@@ -84,14 +85,16 @@ fetch("http://127.0.0.1:5000/exit_exam_question_answer_api")
             
         })
 
+       
         check_answer.addEventListener("click",function(){
             detail.style.visibility='visible'
             goto[number].style.backgroundColor="hsl(210deg 10% 90%)"
             goto[number].style.color="hsl(210deg 40% 16%)"
-            
+
         })
         
-      
+        
+        
         
     })
     .catch(err=>{

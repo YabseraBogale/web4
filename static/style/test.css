@@ -4,7 +4,13 @@
     font-family:  "Cartograph CF", monospace;
 }
 
-
+.reload{
+    margin-left: 25%;
+    margin-right: 25%;
+    margin-top: 5px;
+    border: 2px solid hsl(210deg 10% 90%);
+    border-radius: 4px;
+}
 .question{
     
     margin-left: 25%;
