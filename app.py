@@ -1,9 +1,5 @@
-import os
-from datetime import datetime
 from flask import Flask,jsonify,request,render_template,url_for,send_from_directory
 from Database.HEEE import heee 
-
-
 
 app=Flask(__name__)
 exit_exam=heee()
@@ -20,21 +16,6 @@ def resume():
     return send_from_directory(directory,filename,as_attachment=True)
 
 
-@app.route("/come",methods=["GET","POST"])
-def come():
-    if request.method=="POST":
-        if "video" not in request.files:
-            return "no video uploaded"
-        video = request.files["video"]
-        if video.filename=="":
-            return "no video"
-        else:
-            filename=str(datetime.now())+video.filename
-            video_path=os.path.join(app.config["UPLOAD_FOLDER"],filename)
-            video.save(video_path)
-            return "ok"
-    return render_template("come.html")
-
 @app.route("/test")
 def test():
     return render_template("test.html")
@@ -49,7 +30,6 @@ def exit_exam_question_answer_api():
 @app.route("/blog/<name>")
 def blog(name):
     return render_template(name)
-
 
 
 @app.route("/random_software_fact")
