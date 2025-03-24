@@ -32,17 +32,7 @@ class Database():
             print(e)
             return False
 
-    def create_table_newsletter(self):
-
-        try:
-            statement="create table IF NOT EXISTS newletter(email text not null primary key)"
-            self.pointer.execute(statement)
-            self.connection.commit()
-            return True
-        
-        except Exception as e:
-            print(e)
-            return False
+    
     
 
 
