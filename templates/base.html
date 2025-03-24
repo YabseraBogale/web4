@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block headtitle %}{% endblock %}</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 </head>
 <style>
     *{
@@ -42,17 +43,20 @@
         margin-left: 50%;
         margin-right: 50%;
     }
-    a{
-        margin: 6px;
+    
+    footer{
+        display: flex;
+        flex-direction: row;
+        margin-left: 50%;
+        margin-right: 50%;
     }
 
-    .footer {
-        position:relative;
-        bottom:3px;
-        justify-items: center;
+    i{
+        padding: 15px;
         
     }
 
+   
     @media screen and (max-width: 1000px) {
         .body{
         padding-left: 10%;
@@ -92,53 +96,8 @@
 
 <footer>
     
-    <form class="footer" id="form">
-        <hr>
-        <div id="dialog">
-            
-        </div>
-        <div class="news">
-            for weekily news letter <input type="email" name="email" id="email" placeholder="email"><b id="send">enter</b>
-        </div>
-    </form>
-    <script>
-        const form = document.getElementById("form")
-        const dialog=document.getElementById("dialog")
-        async function sendData() {
-            const formData= new FormData(form)
-            try{
-                const response=await fetch("/news",{
-                    method:"POST",
-                    body:formData,
-                });
-                const result= await response.json()
-                if(result.ok==200){
-                    dialog.innerHTML=`<dialog open>
-                                        <p>Greetings, Thanks for signnig up!</p>
-                                        <form method="dialog">
-                                        <button>OK</button>
-                                        </form>
-                                    </dialog>`
-                   
-                } else if (result.err==404){
-                    dialog.innerHTML=`<dialog open>
-                                        <p>Already in signned for new letter!</p>
-                                        <form method="dialog">
-                                        <button>OK</button>
-                                        </form>
-                                    </dialog>`
-                   
-                }
-            }
-            catch(e){
-                console.error(e)
-            }
-        }
-        const send=document.getElementById('send')
-        send.addEventListener('click',(event)=>{
-            event.preventDefault()
-            sendData()
-        })
-    </script>
+    <a href="https://t.me/yabserapython"><i class="fa-brands fa-telegram"></i></a>
+    <a href="https://github.com/YabseraBogale"><i class="fa-brands fa-github"></i></a>
+    
 </footer>
 </html>
