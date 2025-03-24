@@ -2,13 +2,12 @@ import os
 from datetime import datetime
 from flask import Flask,jsonify,request,render_template,url_for,send_from_directory
 from Database.HEEE import heee 
-from Database.NEWLETTER import newletter
+
 
 
 app=Flask(__name__)
-app.config["UPLOAD_FOLDER"]="Upload/"
 exit_exam=heee()
-news_letter=newletter()
+
 
 @app.route("/")
 def index():
@@ -51,14 +50,6 @@ def exit_exam_question_answer_api():
 def blog(name):
     return render_template(name)
 
-@app.route("/news",methods=['POST','GET'])
-def newletter():
-    if request.method=='POST':
-        if news_letter.insert_into_newletter(request.form['email'])==True:
-            return jsonify({'ok':200})
-        else:
-            return jsonify({'err':404})
-    return render_template("base.html")
 
 
 @app.route("/random_software_fact")
