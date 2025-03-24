@@ -16,6 +16,10 @@ fetch("http://127.0.0.1:5000/exit_exam_question_answer_api")
         let radio=document.getElementsByName("choice")
         let goto=document.querySelectorAll(".goto")
 
+        reload.addEventListener("click",function(){
+            window.location.reload()
+        })
+
         goto.forEach(item=>{
            
             item.addEventListener("click",function(){
