@@ -19,6 +19,7 @@ fetch("http://127.0.0.1:5000/exit_exam_question_answer_api")
            
             item.addEventListener("click",function(){
                 let number_in=parseInt(item.innerText)-1
+                number=number_in
                 question.innerText=data[number_in][0]
                 choice_a.innerText=data[number_in][1]
                 choice_b.innerText=data[number_in][2]
@@ -46,7 +47,7 @@ fetch("http://127.0.0.1:5000/exit_exam_question_answer_api")
         
         
         next.addEventListener("click",function(){
-            if(number<100){
+            if(number<99){
                 number+=1
                 question.innerText=data[number][0]
                 choice_a.innerText=data[number][1]
@@ -60,6 +61,7 @@ fetch("http://127.0.0.1:5000/exit_exam_question_answer_api")
                 radio[1].checked=false
                 radio[2].checked=false
                 radio[3].checked=false
+                console.log(number)
             }
             
         })
@@ -84,6 +86,9 @@ fetch("http://127.0.0.1:5000/exit_exam_question_answer_api")
 
         check_answer.addEventListener("click",function(){
             detail.style.visibility='visible'
+            goto[number].style.backgroundColor="hsl(210deg 10% 90%)"
+            goto[number].style.color="hsl(210deg 40% 16%)"
+            
         })
         
       
