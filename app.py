@@ -32,10 +32,10 @@ def blog(name):
     return render_template(name)
 
 
-@app.route("/random_software_fact")
+@app.route("/dictionary_for_software")
 def random_software_fact():
     facts=exit_exam.random_software_fact()
-    return render_template("random_software_fact.html",Facts=facts)
+    return render_template("dictionary_for_software.html",Facts=facts)
 
 if __name__=="__main__":
     app.run(debug=True)
