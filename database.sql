@@ -8,6 +8,3 @@ create table HEEE(
     explanation text not null
 )
 
-create table newletter(
-    email text not null primary key
-)
