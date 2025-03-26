@@ -8,9 +8,11 @@ fetch("http://127.0.0.1:5000/exit_exam_question_answer_api")
         return response.json()
     } )
     .then(data=>{
-        
+        const body=document.querySelector(".body")
+        const req=document.querySelector(".req")
         if(data.not_ok){
-            
+            body.visibility="hidden"
+            req.visibility="inline"
 
         } else{
         const question=document.getElementById("question")
