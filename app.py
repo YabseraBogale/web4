@@ -25,12 +25,12 @@ def resume():
 
 
 @app.route("/test")
-@limiter.limit("1 per day")
+@limiter.limit("3 per day")
 def test():
     return render_template("test.html")
 
 @app.route("/exit_exam_question_answer_api")
-@limiter.limit("1 per day")
+@limiter.limit("3 per day")
 def exit_exam_question_answer_api():
     result=exit_exam.get_random_100_question_heee()
     if type(result)==type([]):
