@@ -4,7 +4,10 @@ from flask import Flask,jsonify,request,render_template,url_for,send_from_direct
 from Database.HEEE import heee 
 
 app=Flask(__name__)
-
+limiter=Limiter(
+    get_remote_address,
+    app=app,
+)
 
 exit_exam=heee()
 
@@ -22,6 +25,7 @@ def resume():
 
 
 @app.route("/test")
+@limiter.limit("1 per day")
 def test():
     return render_template("test.html")
 
