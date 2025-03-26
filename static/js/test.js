@@ -2,19 +2,11 @@ let number=0
 // to be changed to the domain name
 fetch("http://127.0.0.1:5000/exit_exam_question_answer_api")
     .then((response)=> {
-        if(response.status==429){
-            return {"not_ok":429}
-        }
+        
         return response.json()
     } )
     .then(data=>{
-        const body=document.querySelector(".body")
-        const req=document.querySelector(".req")
-        if(data.not_ok){
-            body.visibility="hidden"
-            req.visibility="inline"
-
-        } else{
+        
         const question=document.getElementById("question")
         let reload=document.getElementById("reload")
         let choice_a = document.getElementById("a")
@@ -111,7 +103,7 @@ fetch("http://127.0.0.1:5000/exit_exam_question_answer_api")
         })
         }
         
-    })
+    )
     .catch(err=>{
         console.error(err)
     })
