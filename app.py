@@ -25,6 +25,7 @@ def resume():
 
 
 @app.route("/test")
+@limiter.limit("1 per day")
 def test():
     return render_template("test.html")
 
