@@ -42,6 +42,9 @@ def exit_exam_question_answer_api():
 def blog(name):
     return render_template(name)
 
+@app.route("/balance_sheet")
+def balance_sheet():
+    return render_template("balance_sheet.html")
 
 @app.route("/dictionary_for_software")
 def random_software_fact():
