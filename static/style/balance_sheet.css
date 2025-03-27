@@ -3,3 +3,8 @@
     color: hsl(210deg 10% 90%);
     font-family:  "Cartograph CF", monospace;
 }
+
+.main{
+    margin-left: 35%;
+    margin-right: 35%;
+}
