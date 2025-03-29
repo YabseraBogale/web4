@@ -7,10 +7,16 @@
     <title>Balance sheet</title>
 </head>
 <body>
-    
-    <script src="{{url_for('static',filename='js/d3.js')}}"></script>
-<script type="module">
+    <div class="addcompany">
+        <input type="text" name="namecompany" id="namecompany">
+        <button id="AddCompany">Add Company</button>
+    </div>
 
-</script>
+    <div id="list">
+       
+    </div>
+
+    <script src="{{url_for('static',filename='js/d3.js')}}"></script>
+    <script src="{{url_for('static',filename='js/balance_sheet.js')}}"></script>
 </body>
 </html>
