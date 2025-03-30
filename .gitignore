@@ -4,3 +4,4 @@ Database/__pycache__/
 main.py
 question.json
 database.db
+config.py
