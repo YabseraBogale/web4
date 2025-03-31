@@ -6,22 +6,25 @@
     <title>Document</title>
     <script src="{{url_for('static',filename='js/chart.js')}}"></script>
 </head>
+<style>
+    
+</style>
 <body>
     <canvas id="myChart" width="400" height="200"></canvas>
     <script>
         const ctx = document.getElementById('myChart').getContext('2d');
       
         const myChart = new Chart(ctx, {
-          type: 'line', // You can change it to 'bar', 'pie', etc.
+          type: 'bar', // You can change it to 'bar', 'pie', etc.
           data: {
             labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May'],
-            datasets: [{
-              label: 'Sales',
-              data: [10, 20, 15, 25, 30], // Data points
-              borderColor: 'blue',
-              borderWidth: 2,
-              fill: false
-            }]
+                datasets: [{
+                    label: 'Sales',
+                    data: [10, 20, 15, 25, 30], // Data points
+                    backgroundColor: 'blur', // Filled bar color (with transparency)
+                    borderColor: 'blue', // Border color
+                    borderWidth: 1
+                }]
           },
           options: {
             responsive: true
