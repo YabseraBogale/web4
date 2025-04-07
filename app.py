@@ -15,6 +15,7 @@ exit_exam=heee()
 @app.errorhandler(429)
 def ratelimit_handler(e):
     return render_template("err429.html",err=e)
+
 @app.route("/")
 def index():
     return render_template("index.html")
