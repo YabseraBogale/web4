@@ -10,8 +10,7 @@ filepath=os.path.join(directory,f"{name}.html")
 os.makedirs(directory,exist_ok=True)
 
 with open(filepath,'w') as f:
-    f.write("""
-{% extends "base.html" %}
+    f.write("""{% extends "base.html" %}
 
 {% block headtitle %}
       
