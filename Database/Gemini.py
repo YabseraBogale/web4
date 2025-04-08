@@ -14,7 +14,7 @@ class gemini():
         except Exception as e:
             print(e)
 
-    def MakeArticleGenarate(self,topic):
+    def ArticleGenarate(self,topic):
         try:
             statment="Insert into Gemini(topic,response) values(?,?)"
             response = self.client.models.generate_content(model="gemini-2.0-flash", contents=str(topic).lower())
