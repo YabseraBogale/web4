@@ -35,13 +35,11 @@ class Database():
     def create_table_gemini(self):
         try:
             statment="create table IF not exists Gemini( topic text not null primary key, response text not null)"
-            self.pointer(statment)
+            self.pointer.execute(statment)
             self.connection.commit()
             return True
         except Exception as e:
             return str(e)
     
-
-
 
 
