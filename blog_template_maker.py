@@ -5,6 +5,7 @@ name=input("Enter template name: ")
 
 directory="templates"
 
+
 filepath=os.path.join(directory,f"{name}.html")
 
 os.makedirs(directory,exist_ok=True)
