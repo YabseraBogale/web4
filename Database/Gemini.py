@@ -5,7 +5,7 @@ from google import genai
 class gemini():
 
     def __init__(self):
-        
+
         try:
             self.connection=sqlite3.Connection("database.db",check_same_thread=False)
             self.pointer=self.connection.cursor()
@@ -21,6 +21,5 @@ class gemini():
             self.pointer.execute(statment,(topic,response.text))
             self.connection.commit()
             return True
-        
         except Exception as e:
             return str(e)
