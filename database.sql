@@ -8,3 +8,7 @@ create table HEEE(
     explanation text not null
 )
 
+create table Gemini(
+    topic text not null primary key,
+    response text not null
+)

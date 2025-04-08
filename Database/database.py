@@ -13,7 +13,7 @@ class Database():
 
         try:
             statement="""
-                    create table HEEE(
+                    create table IF not exists HEEE(
                         question text not null primary key,
                         choice_a text not null,
                         choice_b text not null,
@@ -32,7 +32,14 @@ class Database():
             print(e)
             return False
 
-    
+    def create_table_gemini(self):
+        try:
+            statment="create table IF not exists Gemini( topic text not null primary key, response text not null)"
+            self.pointer(statment)
+            self.connection.commit()
+            return True
+        except Exception as e:
+            return str(e)
     
 
 
