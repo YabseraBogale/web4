@@ -23,3 +23,5 @@ class gemini():
             return True
         except Exception as e:
             return str(e)
+        
+print(gemini().ArticleGenarate(""))
