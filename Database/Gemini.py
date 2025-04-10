@@ -22,7 +22,7 @@ class gemini():
             response = self.client.models.generate_content(model="gemini-2.0-flash", contents=str(topic).lower())
             self.pointer.execute(statment,(topic,response.text))
             self.connection.commit()
-            return True
+            return self.GetQuery(topic)
         except Exception as e:
             return str(e)
         
