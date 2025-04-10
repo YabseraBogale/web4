@@ -43,7 +43,7 @@ class gemini():
             statment="select response from Gemini where topic=?"
             self.pointer.execute(statment,(topic))
             result=self.pointer.fetchone()
-            return result[0]
+            return result
         except Exception as e:
             return str(e)
         
