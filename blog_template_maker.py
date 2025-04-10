@@ -31,10 +31,7 @@ contentbegin="""
 {% block content %}
 """
 
-if type(genai.GetQuery(query))==type([]):
-    response=genai.GetQuery(query)[0]
-else:
-    response="trying again"
+response=genai.GetQuery(query)[0]
 contentend="""
 {% endblock %}
 """

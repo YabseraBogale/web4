@@ -16,12 +16,12 @@ class gemini():
 
     def ArticleGenarate(self,topic):
         try:
-            if self.PrevoiusQuery(topic)==False:
+            if self.PrevoiusQuery(topic)==True:
+                statment="Insert into Gemini(topic,response) values(?,?)"
+                response = self.client.models.generate_content(model="gemini-2.0-flash", contents=str(topic).lower())
+                self.pointer.execute(statment,(topic,response.text,))
+                self.connection.commit()
                 return self.GetQuery(topic)
-            statment="Insert into Gemini(topic,response) values(?,?)"
-            response = self.client.models.generate_content(model="gemini-2.0-flash", contents=str(topic).lower())
-            self.pointer.execute(statment,(topic,response.text))
-            self.connection.commit()
             return self.GetQuery(topic)
         except Exception as e:
             return str(e)
@@ -31,7 +31,7 @@ class gemini():
             statment="SELECT Count(topic) from Gemini where topic=?"
             self.pointer.execute(statment,(topic,))
             result=self.pointer.fetchone()
-            if result[0]==1:
+            if result[0]==0:
                 return True
             else:
                 return False
@@ -41,7 +41,7 @@ class gemini():
     def GetQuery(self,topic):
         try:
             statment="select response from Gemini where topic=?"
-            self.pointer.execute(statment,(topic))
+            self.pointer.execute(statment,(topic,))
             result=self.pointer.fetchone()
             return result
         except Exception as e:
