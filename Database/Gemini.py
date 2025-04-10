@@ -47,5 +47,3 @@ class gemini():
         except Exception as e:
             return str(e)
         
-
-print(gemini().PrevoiusQuery("What is metadata ? and types of metadata"))
