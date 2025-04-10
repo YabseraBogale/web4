@@ -27,7 +27,7 @@ Used to create the articles from making request to gemini to be used in conjunct
 
 used to build the blog with gemini Capability.
 
-==/exit_exam_question_answer_api==
+#/exit_exam_question_answer_api
 
 rest api that will give you 100 question and answers with request.
 
