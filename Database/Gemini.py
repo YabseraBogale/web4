@@ -25,4 +25,3 @@ class gemini():
             return str(e)
         
         
-print(gemini().ArticleGenarate(""))

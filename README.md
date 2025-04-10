@@ -23,11 +23,11 @@ Gemini.py
 
 Used to create the articles from making request to gemini to be used in conjunction with blog_template_maker.py also have the Capability to store previous queries in the database. 
 
-==blog_template_maker.py==
+blog_template_maker.py
 
 used to build the blog with gemini Capability.
 
-#/exit_exam_question_answer_api
+/exit_exam_question_answer_api
 
 rest api that will give you 100 question and answers with request.
 
