@@ -9,11 +9,19 @@
 <body>
     <div class="main">
         <div class="amount">
-            <input type="number" name="amount" id="amount">
+            <input type="number" name="amount" id="amount" min="0">
         </div>
         <div class="country">
             <select name="country" id="country">
-                <option value=""></option>
+                <option value="">--select a country--</option>
+            </select>
+        </div>
+        <div class="years">
+            <select name="year_in" id="year_in">
+                <option value="">--select a year in--</option>
+            </select>
+            <select name="year_at" id="year_at">
+                <option value="">--select a year at--</option>
             </select>
         </div>
     </div>
