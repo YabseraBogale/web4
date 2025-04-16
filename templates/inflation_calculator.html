@@ -8,10 +8,9 @@
 </head>
 <body>
     <div class="main">
-        <div class="amount">
-            <input type="number" name="amount" id="amount" min="0">
-        </div>
+        
         <div class="country">
+            <input type="number" name="amount" id="amount" min="0" placeholder="Amount">
             <select name="country" id="country">
                 <option value="">--select a country--</option>
             </select>
@@ -24,6 +23,7 @@
                 <option value="">--select a year at--</option>
             </select>
         </div>
+        <input type="submit" value="Calculate">
         <div class="result">
             <p>has the same buying power as <b id="result"></b></p>
         </div>
