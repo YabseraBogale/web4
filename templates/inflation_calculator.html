@@ -4,8 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inflation Calculator</title>
+    <link rel="stylesheet" href="{{url_for('static',filename='style/inflation_calculator.css')}}">
 </head>
 <body>
-    
+    <div class="main">
+        <div class="amount">
+            <input type="number" name="amount" id="amount">
+        </div>
+        <div class="country">
+            <select name="country" id="country">
+                <option value=""></option>
+            </select>
+        </div>
+    </div>
 </body>
 </html>
