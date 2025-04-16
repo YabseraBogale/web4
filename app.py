@@ -53,5 +53,9 @@ def random_software_fact():
     facts=exit_exam.random_software_fact()
     return render_template("dictionary_for_software.html",Facts=facts)
 
+@app.route("/inflation_calculator")
+def inflation_calculator():
+    return render_template("inflation_calculator.html")
+
 if __name__=="__main__":
     app.run(debug=True)
