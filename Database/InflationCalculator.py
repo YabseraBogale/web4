@@ -20,5 +20,7 @@ class inflation_calculator():
                     CPI in Target Year: The price index value for the year you want to adjust the money to.
                     Adjusted Amount: The equivalent value of the Initial Amount in the Target Year's currency value.
             """
+            ###############                 amount*(year_at/year_in) ###################### country
+            statment="""select Country_Name,?*(?/?) from inflation_calculator where Country_Name=?"""
         except Exception as e:
             return str(e)
