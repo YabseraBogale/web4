@@ -9,7 +9,7 @@ class inflation_calculator():
         except Exception as e:
             print(e)
 
-    def calculator(self,country,year_in,year_at,amount):
+    def calculator(self,amount,year_at,year_in,country):
         try:
             """
                 Adjusted Amount = Initial Amount * (CPI in Target Year / CPI in Initial Year)
@@ -22,5 +22,11 @@ class inflation_calculator():
             """
             ###############                 amount*(year_at/year_in) ###################### country
             statment="""select Country_Name,?*(?/?) from inflation_calculator where Country_Name=?"""
+            self.pointer.execute(statment,(amount,year_at,year_in,country,))
+            result=self.pointer.fetchone()
+            return result
         except Exception as e:
             return str(e)
+        
+
+        
