@@ -21,12 +21,12 @@ class inflation_calculator():
                     Adjusted Amount: The equivalent value of the Initial Amount in the Target Year's currency value.
             """
             ###############                 amount*(year_at/year_in) ###################### country
-            statment="""select Country_Name,?*(?/?) from inflation_calculator where Country_Name=?"""
-            self.pointer.execute(statment,(amount,year_at,year_in,country,))
+            statment=f"""select Country_Name,({amount})*("{year_at}"/"{year_in}") from inflation_calculator where Country_Name="{country}" """
+            self.pointer.execute(statment)
             result=self.pointer.fetchone()
             return result
         except Exception as e:
             return str(e)
         
 
-        
+print(inflation_calculator().calculator(150,"2010","1960","United States"))
